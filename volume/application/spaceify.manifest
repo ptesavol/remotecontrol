@@ -1,0 +1,25 @@
+{
+ "provides_services": [{"service_name": "spaceify.org/services/remotecontrol", "service_type": "open"}],
+ "name": "Remote Control",
+ "unique_name":"spaceify\/remotecontrol",
+ "version":"1.0.0",
+ "type": "spacelet",
+ "category": "graphics",
+ "shared": true,
+ "inject_hostnames": ["*"],
+ "inject_identifier": "<head>",
+ "inject_files": [
+{"directory": "libs/communication", "file": "callbackbuffer.js", "type": "javascript"},
+{"directory": "libs/communication", "file": "rpccommunicator.js", "type": "javascript"},   
+{"directory": "libs/communication", "file": "websocketconnection.js", "type": "javascript"},   
+{"directory": "libs/communication", "file": "websocketrpcconnection.js", "type": "javascript"},
+{"directory": "libs", "file": "spaceify.js", "type": "javascript"},
+{"file": "remotecontrolclient.js", "type": "javascript"}
+],
+ "start_command": "node remotecontrol.js",
+ "developer": {"name": "Spaceify Inc.", "email": "admin@spaceify.net", "url": "http:\/\/spaceify.net"},
+ "short_description": "Remote control for web browsers.",
+ "license": "MIT",
+ "creation_date": "2015-05-18 04:19:07",
+ "images": [{"file": "icon.png"}]
+}

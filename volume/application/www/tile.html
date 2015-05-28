@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=100%, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title></title>
+
+	<style id="tilestyle"></style>
+		
+	<script>
+		
+		function UrlViewerTile()
+			{
+			var self = this;			
+			var bigscreenId = "default";  
+		
+			
+			self.onUrlGiven = function()
+				{
+				var givenUrl = document.getElementById("urlfield").value;
+                        	var urlViewer = spaceify.getRequiredService("spaceify.org/services/urlviewer");
+				urlViewer.callRpc("showUrl",[givenUrl, null, null], self, null);
+				};
+			
+			self.onSpaceifyConnected = function()
+                                {
+                                console.log("UrlViewerTitle::onSpaceifyConnected()");
+                                };
+
+			self.start = function()
+				{
+				spaceify.connect(["spaceify.org/services/urlviewer"], self.onSpaceifyConnected);
+				};		
+			}
+				
+		var urlViewerTile = new UrlViewerTile();
+		
+
+		// Load the resources.
+		// All resources, scripts, images etc. MUST be loaded this
+                // way because we want to be able to load them using WebRTC
+                // in the future
+
+		window.onload = function() 
+			{
+			var uniqueName = "spaceify/urlviewer";
+                	var head = document.getElementsByTagName("head")[0] || document.documentElement;
+
+                	var requiredResources =
+                        	[
+                        	{createtag: "style",  context: head, src: "tile.css" },
+                        	{createtag: "script", context: head, src: "libs/communication/callbackbuffer.js", type: "text/javascript"},
+                        	{createtag: "script", context: head, src: "libs/communication/websocketconnection.js", type: "text/javascript"},
+                        	{createtag: "script", context: head, src: "libs/communication/rpccommunicator.js", type: "text/javascript"},
+                        	{createtag: "script", context: head, src: "libs/communication/websocketrpcconnection.js", type: "text/javascript"},
+                        	{createtag: "script", context: head, src: "libs/spaceify.js", type: "text/javascript"}
+                        	];
+
+			window.parent.spaceifyRequest.loadResources(requiredResources, uniqueName, function()
+				{
+				urlViewerTile.start();	
+				});
+			};		
+	      
+	       
+	</script>
+</head>
+
+<body>
+	<div class="slideTile">
+		<div class="container" id="container">
+			Enter URL
+			 <div>
+				<input type="text" name="urlfield" id="urlfield"></input>
+			</div>
+				
+			<div>	
+				<input type="button" onclick="urlViewerTile.onUrlGiven();" value="Show page on big screen"></input>
+			</div> 	
+		</div>
+	</div>
+
+</body>
+
+</html>

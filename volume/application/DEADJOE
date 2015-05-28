@@ -1,0 +1,21 @@
+
+*** These modified files were found in JOE when it aborted on Tue May 26 11:53:19 2015
+*** JOE was aborted by UNIX signal 1
+
+*** File '(Unnamed)'
++=2
+content_type
+dns_v4_first
+
+*** File '(Unnamed)'
+communication/websocketserver.js
+remotecontrolclient.js
+remotecontrol.js
+www/remotecontrolclient.js
+www/remotecontrolclient.js
+www/remotecontrolclient.js
+remotecontrol.js
+www/remotecontrolclient.js
+/etc/squid3/squid.conf
+/var/lib/spaceify/data/dns/ip
+/etc/squid3/squid.conf
