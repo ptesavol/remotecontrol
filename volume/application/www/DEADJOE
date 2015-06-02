@@ -1,0 +1,21 @@
+
+*** These modified files were found in JOE when it aborted on Fri May 29 18:48:17 2015
+*** JOE was aborted by UNIX signal 15
+
+*** File '(Unnamed)'
++=2
+content_type
+dns_v4_first
+
+*** File '(Unnamed)'
+/var/lib/spaceify/data/dns/ip
+/var/lib/spaceify/data/dns/ip
+/var/lib/spaceify/data/dns/ip
+/var/lib/spaceify/data/dns/ip
+/var/lib/spaceify/data/dns/ip
+/var/lib/spaceify/data/dns/ip
+/etc/rc.local
+/var/lib/spaceify/data/dns/ip
+dns.sh
+.git/info/exclude
+remotecontrolclient.js

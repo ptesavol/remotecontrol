@@ -72,14 +72,7 @@ function RemoteControlClient()
 	        var x = window.scrollX;
 	        console.log("X was: "+x+", Y was: "+y);
 	        spaceify.getRequiredService("spaceify.org/services/remotecontrol").callRpc("scrollAll", [x,y], self, null);
-	        };
-	        
-        self.onWindowClick = function(event)
-                {
-                console.log("onWindowClick");
-                console.log(JSON.stringify(event));
-                };
-                                	
+	        }        	
 	self.onServicesConnected = function()
 		{
 		//Now the initialization is complete
@@ -97,8 +90,7 @@ function RemoteControlClient()
 			console.log("Stripped url is: " +url);
 			spaceify.getRequiredService("spaceify.org/services/remotecontrol").callRpc("redirectAllToUrl", [url], self, null);
 			
-	                window.addEventListener("scroll", self.onScroll, false);
-	                window.addEventListener("click", self.onWindowClick, false);		
+	                window.addEventListener("scroll", self.onScroll, false);		
 			}
 		
 		}
